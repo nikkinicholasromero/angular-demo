@@ -6,45 +6,40 @@
                     Registration Form
                 </div>
                 <div class="card-body">
-                    <form [formGroup]="registrationForm">
+                    <form [formGroup]="registrationForm" (submit)="onSubmit()">
                         <div class="form-group">
-                            <label for="emailAddress">Email address</label>
-                            <input type="email" class="form-control" id="emailAddress" formControlName="emailAddress" [ngClass]="getInputClass(emailAddress)">
-                            <div *ngIf="emailAddress.dirty" [ngClass]="getFeedbackClass(emailAddress)">
-                                {{ validation.getErrorMessage(emailAddress, "Email address") }}
-                            </div>
+                            <app-form-field 
+                                [parent]="registrationForm" 
+                                [field]="this.registrationForm.controls['emailAddress']" 
+                                [fieldName]="'Email address'"></app-form-field>
                         </div>
                         <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" formControlName="password" [ngClass]="getInputClass(password)">
-                            <div *ngIf="password.dirty" [ngClass]="getFeedbackClass(password)">
-                                {{ validation.getErrorMessage(password, "Password") }}
-                            </div>
+                            <app-form-field 
+                                [parent]="registrationForm" 
+                                [field]="this.registrationForm.controls['password']" 
+                                [fieldName]="'Password'"></app-form-field>
                         </div>
                         <div class="form-group">
-                            <label for="confirmPassword">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" [ngClass]="getInputClass(confirmPassword)">
-                            <div *ngIf="confirmPassword.dirty" [ngClass]="getFeedbackClass(confirmPassword)">
-                                {{ validation.getErrorMessage(confirmPassword, "Confirm Password") }}
-                            </div>
+                            <app-form-field 
+                                [parent]="registrationForm" 
+                                [field]="this.registrationForm.controls['confirmPassword']" 
+                                [fieldName]="'Confirm Password'"></app-form-field>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="firstName">First name</label>
-                                <input type="text" class="form-control" id="firstName" formControlName="firstName" [ngClass]="getInputClass(firstName)">
-                                <div *ngIf="firstName.dirty" [ngClass]="getFeedbackClass(firstName)">
-                                    {{ validation.getErrorMessage(firstName, "First name") }}
-                                </div>
+                                <app-form-field 
+                                    [parent]="registrationForm" 
+                                    [field]="this.registrationForm.controls['firstName']" 
+                                    [fieldName]="'First Name'"></app-form-field>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="lastName">Last name</label>
-                                <input type="text" class="form-control" id="lastName" formControlName="lastName" [ngClass]="getInputClass(lastName)">
-                                <div *ngIf="lastName.dirty" [ngClass]="getFeedbackClass(lastName)">
-                                    {{ validation.getErrorMessage(lastName, "Last name") }}
-                                </div>
+                                <app-form-field 
+                                    [parent]="registrationForm" 
+                                    [field]="this.registrationForm.controls['lastName']" 
+                                    [fieldName]="'Last Name'"></app-form-field>
                             </div>
                         </div>
-                        <button href="#" type="submit" id="submit" class="btn btn-primary float-right">Submit</button>
+                        <button href="#" type="submit" id="submit" class="btn btn-primary float-right">Register</button>
                     </form>
                 </div>
             </div>

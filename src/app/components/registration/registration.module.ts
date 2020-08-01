@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { RegistrationRoutingModule } from './registration-routing.module';
 import { RegistrationComponent } from './registration.component';
+import { FormFieldComponent } from '../common/form-field/form-field.component';
 
 @NgModule({
   imports: [
@@ -11,6 +12,8 @@ import { RegistrationComponent } from './registration.component';
     RegistrationRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [RegistrationComponent]
+  declarations: [
+    RegistrationComponent,
+    FormFieldComponent]
 })
 export class RegistrationModule { }
