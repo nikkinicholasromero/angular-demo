@@ -19,6 +19,8 @@ export class RegistrationComponent implements OnInit {
     validators: CustomValidators.customPasswordValidator
   });
 
+  isProcessing: boolean;
+
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -29,5 +31,10 @@ export class RegistrationComponent implements OnInit {
       this.registrationForm.controls[key].markAsDirty();
       this.registrationForm.controls[key].updateValueAndValidity();
     });
+
+    if (this.registrationForm.valid) {
+      this.registrationForm.disable();
+      this.isProcessing = true;
+    }
   }
 }
