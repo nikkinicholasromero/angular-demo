@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import { CustomValidators } from '../../validators/custom-validators';
 
 @Component({
   selector: 'app-registration',
@@ -13,6 +15,8 @@ export class RegistrationComponent implements OnInit {
     confirmPassword: ['', [Validators.required, Validators.minLength(8)]],
     firstName: ['', Validators.required],
     lastName: ['', Validators.required]
+  },{ 
+    validators: CustomValidators.passwordValidator 
   });
 
   constructor(private formBuilder: FormBuilder) { }

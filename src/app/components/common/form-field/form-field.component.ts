@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormValidationService } from 'src/app/form-validation.service';
+import { FormValidationService } from 'src/app/services/form-validation.service';
 import { AbstractControl, FormGroup } from '@angular/forms';
 
 @Component({
