@@ -33,6 +33,11 @@ export class RegistrationComponent implements OnInit {
     });
 
     if (this.registrationForm.valid) {
+      Object.keys(this.registrationForm.controls).forEach(key => {
+        this.registrationForm.controls[key].markAsPristine();
+        this.registrationForm.controls[key].updateValueAndValidity();
+      });
+
       this.registrationForm.disable();
       this.isProcessing = true;
     }
