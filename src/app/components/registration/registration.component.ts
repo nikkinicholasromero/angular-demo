@@ -12,11 +12,11 @@ export class RegistrationComponent implements OnInit {
   registrationForm: FormGroup = this.formBuilder.group({
     emailAddress: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]],
-    confirmPassword: ['', [Validators.required, Validators.minLength(8)]],
+    confirmPassword: [''],
     firstName: ['', Validators.required],
     lastName: ['', Validators.required]
   },{ 
-    validators: CustomValidators.passwordValidator 
+    validators: CustomValidators.customPasswordValidator
   });
 
   constructor(private formBuilder: FormBuilder) { }
@@ -26,7 +26,8 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit(): void {
     Object.keys(this.registrationForm.controls).forEach(key => {
-      console.log(this.registrationForm.controls[key].value);
+      this.registrationForm.controls[key].markAsDirty();
+      this.registrationForm.controls[key].updateValueAndValidity();
     });
   }
 }

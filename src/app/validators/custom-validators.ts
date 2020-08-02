@@ -1,7 +1,7 @@
-import { ValidatorFn, FormGroup, ValidationErrors } from '@angular/forms';
+import { Validators, ValidatorFn, FormGroup, ValidationErrors } from '@angular/forms';
 
 export class CustomValidators {
-    static readonly passwordValidator: ValidatorFn = (form: FormGroup): ValidationErrors | null => {
+    static readonly customPasswordValidator: ValidatorFn = (form: FormGroup): ValidationErrors | null => {
         const passwordFormControl = form.get('password');
         const confirmPasswordFormControl = form.get('confirmPassword');
 
@@ -10,7 +10,7 @@ export class CustomValidators {
         if (passwordFormControl.value !== confirmPasswordFormControl.value) {
             errorDetails = { passwordDoesNotMatch: true };
         } else {
-            errorDetails = null;
+            errorDetails =  null;
         }
         
         confirmPasswordFormControl.setErrors(errorDetails);
