@@ -9,8 +9,8 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 export class RegistrationComponent implements OnInit {
   registrationForm: FormGroup = this.formBuilder.group({
     emailAddress: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required],
-    confirmPassword: ['', Validators.required],
+    password: ['', [Validators.required, Validators.minLength(8)]],
+    confirmPassword: ['', [Validators.required, Validators.minLength(8)]],
     firstName: ['', Validators.required],
     lastName: ['', Validators.required]
   });

@@ -9,6 +9,9 @@ import { AbstractControl, FormGroup } from '@angular/forms';
 })
 export class FormFieldComponent implements OnInit {
   @Input()
+  public readonly type: string;
+
+  @Input()
   public readonly parent: FormGroup;
   
   @Input()

@@ -9,18 +9,21 @@
                     <form [formGroup]="registrationForm" (submit)="onSubmit()">
                         <div class="form-group">
                             <app-form-field 
+                                [type]="'email'"
                                 [parent]="registrationForm" 
                                 [field]="this.registrationForm.controls['emailAddress']" 
                                 [fieldName]="'Email address'"></app-form-field>
                         </div>
                         <div class="form-group">
                             <app-form-field 
+                                [type]="'password'"
                                 [parent]="registrationForm" 
                                 [field]="this.registrationForm.controls['password']" 
                                 [fieldName]="'Password'"></app-form-field>
                         </div>
                         <div class="form-group">
                             <app-form-field 
+                                [type]="'password'"
                                 [parent]="registrationForm" 
                                 [field]="this.registrationForm.controls['confirmPassword']" 
                                 [fieldName]="'Confirm Password'"></app-form-field>
@@ -28,12 +31,14 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <app-form-field 
+                                    [type]="'text'"
                                     [parent]="registrationForm" 
                                     [field]="this.registrationForm.controls['firstName']" 
                                     [fieldName]="'First Name'"></app-form-field>
                             </div>
                             <div class="form-group col-md-6">
                                 <app-form-field 
+                                    [type]="'text'"
                                     [parent]="registrationForm" 
                                     [field]="this.registrationForm.controls['lastName']" 
                                     [fieldName]="'Last Name'"></app-form-field>

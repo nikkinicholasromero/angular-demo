@@ -1,6 +1,6 @@
 <ng-container [formGroup]="parent">
     <label [for]="fieldId">{{ fieldName }}</label>
-    <input type="text" class="form-control" [id]="fieldId" [formControlName]="fieldId" [ngClass]="getInputClass(field)">
+    <input [type]="type" class="form-control" [id]="fieldId" [formControlName]="fieldId" [ngClass]="getInputClass(field)">
     <div *ngIf="field.dirty" [ngClass]="getFeedbackClass(field)">
         {{ validation.getErrorMessage(field, fieldName) }}
     </div>
