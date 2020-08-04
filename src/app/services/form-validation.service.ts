@@ -7,7 +7,7 @@ import { ValidationErrors, AbstractControl } from '@angular/forms';
 export class FormValidationService {
   private readonly ERROR_MESSAGE_MAP: Map<string, (field: string, errorDetails: any) => string> = new Map([
       ["required", (field: string, errorDetails: any) => `${field} is required`],
-      ["email", (field: string, errorDetails: any) => `${field} should be a valid email address`],
+      ["email", (field: string, errorDetails: any) => `This field should be a valid email address`],
       ["minlength", (field: string, errorDetails: any) => `${field} should be at least ${errorDetails.requiredLength} characters long`],
       ["passwordDoesNotMatch", (field: string, errorDetails: any) => `Passwords does not match`]
   ]);
@@ -18,7 +18,7 @@ export class FormValidationService {
     return (field.dirty && field.valid);
   }
 
-  getErrorMessage(field: AbstractControl, fieldName: string): string | null {
+  getErrorMessage(field: AbstractControl, fieldName: string): string {
     const errors: ValidationErrors = field.errors;
     for (const error in errors) {
       if (Object.prototype.hasOwnProperty.call(errors, error)) {
