@@ -51,6 +51,10 @@ describe('RegistrationComponent', () => {
     component.onSubmit();
 
     expect(component.isProcessing).toBeTrue();
+    expect(component.registrationForm.disabled).toBeTrue();
+    Object.keys(component.registrationForm.controls).forEach(key => {
+      expect(component.registrationForm.controls[key].dirty).toBeFalse();
+    });
   });
 
   it('should display not "Processing..." when form is invalid', () => {
@@ -63,5 +67,9 @@ describe('RegistrationComponent', () => {
     component.onSubmit();
 
     expect(component.isProcessing).toBeFalse();
+    expect(component.registrationForm.disabled).toBeFalse();
+    Object.keys(component.registrationForm.controls).forEach(key => {
+      expect(component.registrationForm.controls[key].dirty).toBeTrue();
+    });
   });
 });
