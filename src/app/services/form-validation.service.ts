@@ -21,9 +21,7 @@ export class FormValidationService {
   getErrorMessage(field: AbstractControl, fieldName: string): string {
     const errors: ValidationErrors = field.errors;
     for (const error in errors) {
-      if (Object.prototype.hasOwnProperty.call(errors, error)) {
-        return this.ERROR_MESSAGE_MAP.get(error)(fieldName, errors[error]);
-      }
+      return this.ERROR_MESSAGE_MAP.get(error)(fieldName, errors[error]);
     }
 
     return "Looks good!";

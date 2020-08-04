@@ -19,7 +19,7 @@ export class RegistrationComponent implements OnInit {
     validators: CustomValidators.customPasswordValidator
   });
 
-  isProcessing: boolean;
+  isProcessing: boolean = false;
 
   constructor(private formBuilder: FormBuilder) { }
 
