@@ -1,4 +1,4 @@
-import { Validators, ValidatorFn, FormGroup, ValidationErrors } from '@angular/forms';
+import { ValidatorFn, FormGroup, ValidationErrors } from '@angular/forms';
 
 export class CustomValidators {
     static readonly customPasswordValidator: ValidatorFn = (form: FormGroup): ValidationErrors | null => {
