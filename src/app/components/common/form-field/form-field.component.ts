@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormValidationService } from 'src/app/services/form-validation.service';
-import { AbstractControl, FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-form-field',
