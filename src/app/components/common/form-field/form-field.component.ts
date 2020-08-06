@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormValidationService } from 'src/app/services/form-validation.service';
-import { AbstractControl, FormGroup } from '@angular/forms';
+import { AbstractControl, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-form-field',
@@ -15,7 +15,7 @@ export class FormFieldComponent implements OnInit {
   public readonly parent: FormGroup;
   
   @Input()
-  public readonly field: AbstractControl;
+  public readonly field: FormControl;
 
   @Input()
   public readonly fieldName: string;
@@ -32,24 +32,24 @@ export class FormFieldComponent implements OnInit {
     });
   }
 
-  getInputClass(field: AbstractControl): string {
-    if (!field.dirty) {
+  getInputClass(): string {
+    if (!this.field.dirty) {
       return '';
     }
 
-    if (this.validation.isFormFieldValid(field)) {
+    if (this.validation.isFormFieldValid(this.field)) {
       return 'is-valid';
     } else {
       return 'is-invalid';
     }
   }
 
-  getFeedbackClass(field: AbstractControl): string {
-    if (!field.dirty) {
+  getFeedbackClass(): string {
+    if (!this.field.dirty) {
       return '';
     }
 
-    if (this.validation.isFormFieldValid(field)) {
+    if (this.validation.isFormFieldValid(this.field)) {
       return 'valid-feedback';
     } else {
       return 'invalid-feedback';
