@@ -76,14 +76,14 @@ describe('FormFieldComponent', () => {
     });
 
     it('should return empty string when getFeedbackClass() is called and field is dirty', () => {
-        hostComponent.formField.field.setValue('');
+        hostComponent.formField.field.setValue('Basdf1g');
         hostComponent.formField.field.markAsDirty();
         hostComponent.formField.field.updateValueAndValidity();
         expect(hostComponent.formField.getFeedbackClass()).toEqual('valid-feedback');
     });
 
     it('should return empty string when getFeedbackClass() is called and field is dirty', () => {
-        hostComponent.formField.field.setValue('Basdf1g');
+        hostComponent.formField.field.setValue('');
         hostComponent.formField.field.markAsDirty();
         hostComponent.formField.field.updateValueAndValidity();
         expect(hostComponent.formField.getFeedbackClass()).toEqual('invalid-feedback');
