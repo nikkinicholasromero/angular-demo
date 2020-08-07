@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormFieldComponent } from './form-field.component';
 import { FormValidationService } from '../../../services/form-validation.service';
 import { Component, ViewChild } from '@angular/core';
-import { FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
+import { FormGroup, Validators, FormControl, AbstractControl, ReactiveFormsModule } from '@angular/forms';
 
 describe('FormFieldComponent', () => {
     class MockFormValidationService {
@@ -38,6 +38,7 @@ describe('FormFieldComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
+            imports: [ReactiveFormsModule],
             declarations: [FormFieldComponent, TestHostComponent],
             providers: [{provide: FormValidationService, useClass: MockFormValidationService}]
         }).compileComponents();
