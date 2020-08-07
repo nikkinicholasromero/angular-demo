@@ -9,7 +9,7 @@
                     <form [formGroup]="registrationForm" (submit)="onSubmit()">
                         <div class="form-group">
                             <app-form-field [type]="'email'" [parent]="registrationForm"
-                                [field]="this.registrationForm.controls['emailAddress']" [fieldName]="'Email address'">
+                                [field]="this.registrationForm.controls['emailAddress']" [fieldName]="'Email Address'">
                             </app-form-field>
                         </div>
                         <div class="form-group">
@@ -39,7 +39,7 @@
                             Register
                         </button>
                         <ng-template #processing>
-                            <button class="btn btn-primary float-right" type="button" disabled>
+                            <button class="btn btn-primary float-right" type="button" id="processing" disabled>
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                 Processing...
                             </button>
