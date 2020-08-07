@@ -17,30 +17,34 @@ describe('FormValidationService', () => {
 
   it('should return false when field is not dirty and not valid', () => {
     const field = new FormControl('', Validators.required);
-    field.markAsUntouched();
+    field.markAsPristine();
+    field.updateValueAndValidity();
 
     expect(service.isFormFieldValid(field)).toBeFalse();
   });
 
   it('should return false when field is not dirty but valid', () => {
     const field = new FormControl('some value', Validators.required);
-    field.markAsUntouched();
+    field.markAsPristine();
+    field.updateValueAndValidity();
 
     expect(service.isFormFieldValid(field)).toBeFalse();
   });
 
   it('should return false when field is dirty but not valid', () => {
     const field = new FormControl('', Validators.required);
-    field.markAsTouched();
+    field.markAsDirty();
+    field.updateValueAndValidity();
 
     expect(service.isFormFieldValid(field)).toBeFalse();
   });
 
   it('should return true when field is dirty and valid', () => {
     const field = new FormControl('some value', Validators.required);
-    field.markAsTouched();
+    field.markAsDirty();
+    field.updateValueAndValidity();
 
-    expect(service.isFormFieldValid(field)).toBeFalse();
+    expect(service.isFormFieldValid(field)).toBeTrue();
   });
 
   it('should return "Looks good!" if there is no error', () => {

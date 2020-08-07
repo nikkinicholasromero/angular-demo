@@ -15,7 +15,7 @@ export class FormValidationService {
   constructor() { }
 
   isFormFieldValid(field: AbstractControl): boolean {
-    return (field.dirty && field.valid);
+    return field.dirty && field.valid;
   }
 
   getErrorMessage(field: AbstractControl, fieldName: string): string {
